@@ -1,13 +1,15 @@
 <template>
   <div>
-    <button v-on="$listeners" class="button" :class="buttonClass">
+    <button v-on="$listeners" v-bind="$attrs" class="button" :class="buttonClass">
       <slot/>
     </button>
   </div>
 </template>
 
 <script>
+//export inheritAttrs & set v-bind="$attrs" on button so we can inherit other attributes onto button
 export default {
+  inheritAttrs: false,
   props: {
     buttonClass: {
       type: String
